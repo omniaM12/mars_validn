@@ -15,5 +15,7 @@ if uploaded_file is not None:
     y_label = st.text_input('Y-axis Label', 'Y-axis')
     fig= px.box(df, x=df.index, y=df[column])
     st.plotly_chart(fig, theme=None, use_container_width=True)
+    st.title("Missings")
+    st.write(df.isna().sum())
     st.title("Descriptive summary")
     st.write(df.describe())
