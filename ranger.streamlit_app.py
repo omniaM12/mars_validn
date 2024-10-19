@@ -38,8 +38,8 @@ if uploaded_file is not None:
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
     dfindex= df.select_dtypes(include=np.number)
-    filtered_df_less_than_minr = df[df[column] <= minr]
-    filtered_df_greater_than_maxr = df[df[column] >= maxr]
+    filtered_df_less_than_minr = dfindex[dfindex[column] <= minr]
+    filtered_df_greater_than_maxr = dfindex[dfindex[column] >= maxr]
 
 # Display the filtered DataFrames
     if not filtered_df_less_than_minr.empty:
