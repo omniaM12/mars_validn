@@ -13,9 +13,9 @@ if uploaded_file is not None:
     column = st.selectbox('Select a column', df.columns.tolist())
     title = st.selectbox('Select chart',('Box Plot','Bar plot'))
     minr= st.number_input("Insert a number", value=None, placeholder="Type a number...")
-    st.write("The current number is ", minr)
+    st.write("The min number is ", minr)
     maxr= st.number_input("Insert a number", value=None, placeholder="Type a number...")
-    st.write("The current number is ", maxr)
+    st.write("The max number ", maxr)
     if title=='Box Plot':
         fig= px.box(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
