@@ -33,11 +33,11 @@ if uploaded_file is not None:
     max_row = df.loc[max_index]
 
 # Display the results in Streamlit
-   st.write("Row with minimum values:")
-   st.write(min_row)
+    st.write("Row with minimum values:")
+    st.write(min_row)
 
-   st.write("Row with maximum values:")
-   st.write(max_row)
+    st.write("Row with maximum values:")
+    st.write(max_row)
     
   
     
