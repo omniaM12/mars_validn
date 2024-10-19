@@ -19,6 +19,6 @@ if uploaded_file is not None:
         st.title("Descriptive summary")
         st.write(df.info())
         st.write(df.describe())
-    if title=='Box Plot':
+    if title=='Bar plot':
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
