@@ -12,9 +12,9 @@ if uploaded_file is not None:
     st.write(df.head())
     column = st.selectbox('Select a column', df.columns.tolist())
     title = st.selectbox('Select chart',('Box Plot','Bar plot'))
-    minr= st.number_input("Insert a number", value=None, placeholder="Type a number...")
+    minr= st.number_input("Insert a min number", value=None, placeholder="Type a number...")
     st.write("The min number is ", minr)
-    maxr= st.number_input("Insert a number", value=None, placeholder="Type a number...")
+    maxr= st.number_input("Insert a max number", value=None, placeholder="Type a number...")
     st.write("The max number ", maxr)
     if title=='Box Plot':
         fig= px.box(df, x=df.index, y=df[column])
