@@ -37,23 +37,28 @@ if uploaded_file is not None:
     if title=='Bar plot':
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
-        
-    filtered_df_less_than_minr = df[df[column] <= minr]
-    filtered_df_greater_than_maxr = df[df[column] >= maxr]
+    numeric_columns = df.select_dtypes(include=np.number)
+    if df[column] in numeric_columns:
+        filtered_df_less_than_minr = df[df[column] <= minr]
+        filtered_df_greater_than_maxr = df[df[column] >= maxr]
 
     # Display the filtered DataFrames
-    if not filtered_df_less_than_minr.empty:
-        st.write("Rows less than min value:")
-        st.write(filtered_df_less_than_minr)
+        if not filtered_df_less_than_minr.empty:
+            st.write("Rows less than min value:")
+            st.write(filtered_df_less_than_minr)
 
-    else:
-        st.write("No rows found less than min value.")
+        else:
+            st.write("No rows found less than min value.")
 
-    if not filtered_df_greater_than_maxr.empty:
-        st.write("Rows greater than max value:")
-        st.write(filtered_df_greater_than_maxr)
+       if not filtered_df_greater_than_maxr.empty:
+            st.write("Rows greater than max value:")
+            st.write(filtered_df_greater_than_maxr)
+       else:
+            st.write("No rows found greater than max value.")
     else:
-        st.write("No rows found greater than max value.")
-    
+         st.write("the variable is categorical and plotted with bar and box plot)
+
+   
+
   
     
