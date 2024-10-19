@@ -40,8 +40,7 @@ if uploaded_file is not None:
         
     filtered_df_less_than_minr = df[df[column] <= minr]
     filtered_df_greater_than_maxr = df[df[column] >= maxr]
-    else:
-        st.write("the bar plot showing the available types in the data")
+
     # Display the filtered DataFrames
     if not filtered_df_less_than_minr.empty:
         st.write("Rows less than min value:")
