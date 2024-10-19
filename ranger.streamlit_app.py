@@ -38,9 +38,11 @@ if uploaded_file is not None:
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
     dfindex= df.select_dtypes(include=np.number)
-    filtered_df_less_than_minr = dfindex[dfindex[column] <= minr]
-    filtered_df_greater_than_maxr = dfindex[dfindex[column] >= maxr]
-
+    if dfindex[column].isnumeric():
+        filtered_df_less_than_minr = dfindex[dfindex[column] <= minr]
+        filtered_df_greater_than_maxr = dfindex[dfindex[column] >= maxr]
+    else:
+        st.write("the bar plot showing the available types in the data")
 # Display the filtered DataFrames
     if not filtered_df_less_than_minr.empty:
         st.write("Rows less than min value:")
