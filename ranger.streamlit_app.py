@@ -25,8 +25,8 @@ if uploaded_file is not None:
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
     dfindex= df.select_dtypes(include=np.number)
-    minvalloc = st.write(dfindex.idxmin(axis = 1))
-    maxvalloc = st.write(dfindex.idxmax(axis = 1))
+    minvalloc = st.write(df.loc(dfindex.idxmin()))
+    maxvalloc = st.write(df.loc(dfindex.idxmax()))
     
     
   
