@@ -55,9 +55,7 @@ if uploaded_file is not None:
             st.write(filtered_df_greater_than_maxr)
        else:
             st.write("No rows found greater than max value.")
-    else:
-         st.write("the variable is categorical and plotted with bar and box plot)
-
+    
    
 
   
