@@ -24,10 +24,13 @@ if uploaded_file is not None:
     st.title("Missings")
     st.write(df.isna().sum())
     percent_missing = df.isnull().sum() * 100 / len(df)
-    if percent_missing>30:
+    if any(percent_missing>30):
+        st.write("At least one column has more than 30% missing values.")
         columns_with_high_missingness = percent_missing[percent_missing > 30].index.tolist()
         st.write("Columns with more than 30% missing values:", columns_with_high_missingness)
         st.write("please check the columns with missings",columns_with_high_missingness)
+    else:
+        st.write("No columns have more than 30% missing values.")   
     st.title("Descriptive summary")
     st.write(df.describe())
         
