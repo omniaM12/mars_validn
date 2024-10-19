@@ -17,14 +17,14 @@ if uploaded_file is not None:
         st.title("Missings")
         st.write(df.isna().sum())
         st.title("Descriptive summary")
-        st.write(df.info())
+        st.write(df.dtypes)
         st.write(df.describe())
     if title=='Bar plot':
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
-    if df[column] isnumeric():
-        minvalloc = st.write(df.idxmin(axis = 1))
-        maxvalloc = st.write(df.idxmax(axis = 1))
+    dfindex= df[column].select_dtypes(include=numerics)
+        minvalloc = st.write(dfindex.idxmin(axis = 1))
+        maxvalloc = st.write(dfindex.idxmax(axis = 1))
     
     
   
