@@ -37,9 +37,6 @@ if uploaded_file is not None:
     if title=='Bar plot':
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
-    filtered_df_less_than_minr = df[df[column] <= minr]
-    filtered_df_greater_than_maxr = df[df[column] >= maxr]
-    if df[column].dtype.name.startswith('int') or df[column].dtype.name.startswith('float'):
         filtered_df_less_than_minr = df[df[column] <= minr]
         filtered_df_greater_than_maxr = df[df[column] >= maxr]
     else:
