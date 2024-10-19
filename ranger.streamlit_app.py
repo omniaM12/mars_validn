@@ -22,8 +22,9 @@ if uploaded_file is not None:
     if title=='Bar plot':
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
-    minvalloc = st.write(df.idxmin(axis = 1))
-    maxvalloc = st.write(df.idxmax(axis = 1))
+    if df[column] isnumeric():
+        minvalloc = st.write(df.idxmin(axis = 1))
+        maxvalloc = st.write(df.idxmax(axis = 1))
     
     
   
