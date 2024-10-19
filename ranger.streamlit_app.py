@@ -14,15 +14,17 @@ if uploaded_file is not None:
     if title=='Box Plot':
         fig= px.box(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
+        st.title("Data columns type")
+        st.write(df.dtypes)
         st.title("Missings")
         st.write(df.isna().sum())
         st.title("Descriptive summary")
-        st.write(df.dtypes)
         st.write(df.describe())
+        
     if title=='Bar plot':
         fig= px.bar(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
-    dfindex= df[column].select_dtypes(include=numerics)
+    dfindex= df.select_dtypes(include=numerics)
     minvalloc = st.write(dfindex.idxmin(axis = 1))
     maxvalloc = st.write(dfindex.idxmax(axis = 1))
     
