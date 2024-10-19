@@ -10,7 +10,7 @@ uploaded_file= st.file_uploader("Choose a CSV file", type="csv")
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     column = st.selectbox('Select a column', df.columns.tolist())
-    title = st.selectbox('Select chart','Box Plot','Bar plot')
+    title = st.selectbox('Select chart',('Box Plot','Bar plot'))
     if title=='Box Plot':
         fig= px.box(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
