@@ -9,10 +9,13 @@ st.title('Descriptive&Box plots')
 uploaded_file= st.file_uploader("Choose a CSV file", type="csv")
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
+    st.write(df.head())
     column = st.selectbox('Select a column', df.columns.tolist())
     title = st.selectbox('Select chart',('Box Plot','Bar plot'))
     minr= st.number_input("Insert a number", value=None, placeholder="Type a number...")
+    st.write("The current number is ", minr)
     maxr= st.number_input("Insert a number", value=None, placeholder="Type a number...")
+    st.write("The current number is ", maxr)
     if title=='Box Plot':
         fig= px.box(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
