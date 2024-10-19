@@ -5,7 +5,7 @@ import plotly.express as px
 import streamlit as st
 
 st.set_page_config(page_title='Box plots', page_icon=':chart_with_upwards_trend:')
-st.title('Box plots')
+st.title('descriptive&Box plots')
 uploaded_file= st.file_uploader("Choose a CSV file", type="csv")
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
@@ -18,4 +18,5 @@ if uploaded_file is not None:
     st.title("Missings")
     st.write(df.isna().sum())
     st.title("Descriptive summary")
+    st.write(df.info())
     st.write(df.describe())
