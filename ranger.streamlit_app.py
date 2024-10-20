@@ -38,16 +38,16 @@ if uploaded_file is not None:
             fig= px.box(df, y=df[column])
             st.plotly_chart(fig, theme=None, use_container_width=True)
     
-        else:
-            fig= px.box(df, x=df.index, y=df[column])
-            st.plotly_chart(fig, theme=None, use_container_width=True)
+            else:
+                fig= px.box(df, x=df.index, y=df[column])
+                st.plotly_chart(fig, theme=None, use_container_width=True)
             
         if title=='Bar plot':
             fig= px.bar(df, y=df[column])
             st.plotly_chart(fig, theme=None, use_container_width=True)
-        else:
-            fig= px.box(df, x=df.index, y=df[column])
-            st.plotly_chart(fig, theme=None, use_container_width=True)
+            else:
+                fig= px.box(df, x=df.index, y=df[column])
+                st.plotly_chart(fig, theme=None, use_container_width=True)
         filtered_df_less_than_minr = df[df[column] <= minr]
         filtered_df_greater_than_maxr = df[df[column] >= maxr]
     # Display the filtered DataFrames
