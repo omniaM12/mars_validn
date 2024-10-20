@@ -50,10 +50,10 @@ if uploaded_file is not None:
         else:
             st.write("No rows found less than min value.")
 
-       if not filtered_df_greater_than_maxr.empty:
+        if not filtered_df_greater_than_maxr.empty:
             st.write("Rows greater than max value:")
             st.write(filtered_df_greater_than_maxr)
-       else:
+        else:
             st.write("No rows found greater than max value.")
     
    
