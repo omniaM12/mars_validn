@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-st.set_page_config(page_title='Box plots', page_icon=':chart_with_upwards_trend:')
+st.set_page_config(page_title='Range validation with plotting', page_icon=':chart_with_upwards_trend:')
 st.title('Descriptive&Box plots')
 uploaded_file= st.file_uploader("Choose a CSV file", type="csv")
 if uploaded_file is not None:
