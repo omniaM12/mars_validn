@@ -19,6 +19,10 @@ if uploaded_file is not None:
     if title=='Box Plot':
         fig= px.box(df, x=df.index, y=df[column])
         st.plotly_chart(fig, theme=None, use_container_width=True)
+    
+    if title=='Bar plot':
+        fig= px.bar(df, x=df.index, y=df[column])
+        st.plotly_chart(fig, theme=None, use_container_width=True)
     st.title("Data columns type")
     st.write(df.dtypes)
     st.title("Missings")
@@ -34,9 +38,7 @@ if uploaded_file is not None:
     st.title("Descriptive summary")
     st.write(df.describe())
         
-    if title=='Bar plot':
-        fig= px.bar(df, x=df.index, y=df[column])
-        st.plotly_chart(fig, theme=None, use_container_width=True)
+   
     numeric_columns = df.select_dtypes(include=np.number)
     if column in numeric_columns:
         filtered_df_less_than_minr = df[df[column] <= minr]
