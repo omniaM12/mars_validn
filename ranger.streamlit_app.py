@@ -34,7 +34,7 @@ if uploaded_file is not None:
    
     numeric_columns = df.select_dtypes(include=np.number)
     if column in numeric_columns:
-        if title=='Box Plot':
+        if column in numeric_columns & title=='Box Plot':
             fig= px.box(df, y=df[column])
             st.plotly_chart(fig, theme=None, use_container_width=True)
     
@@ -42,7 +42,7 @@ if uploaded_file is not None:
             fig= px.box(df, x=df.index, y=df[column])
             st.plotly_chart(fig, theme=None, use_container_width=True)
             
-        if title=='Bar plot':
+        if column in numeric_columns& title=='Bar plot':
             fig= px.bar(df, y=df[column])
             st.plotly_chart(fig, theme=None, use_container_width=True)
         else:
