@@ -41,7 +41,7 @@ if uploaded_file is not None:
         cols = 2
 
     # Iterate over numeric columns and create subplots
-        for i in range(len(numeric_columns), cols):
+         for i in range(len(numeric_columns), cols):
              col1, col2 = st.columns(cols)
 
              with col1:
@@ -50,8 +50,8 @@ if uploaded_file is not None:
 
              if i + 1 < len(numeric_columns):
                 with col2:
-                    fig = px.box(df, y=i+1, title=f"Box Plot for {i+1}")
-                    st.plotly_chart(fig) 
+                    fig2 = px.box(df, y=i+1, title=f"Box Plot for {i+1}")
+                    st.plotly_chart(fig2) 
     #with st.container():
         #for i in numeric_columns:
             #fig = px.box(df, y=df[i], title=f"Box Plot for {i}")
