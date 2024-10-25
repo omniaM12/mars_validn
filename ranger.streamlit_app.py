@@ -38,7 +38,7 @@ if uploaded_file is not None:
     numeric_columns = df.select_dtypes(include=np.number)
     with st.container():
         for i in numeric_columns:
-            fig = px.box(df, y=df[I], title=f"Box Plot for {i}")
+            fig = px.box(df, y=df[i], title=f"Box Plot for {i}")
             st.plotly_chart(fig)
     if column in numeric_columns:
         if title=='Box Plot':
