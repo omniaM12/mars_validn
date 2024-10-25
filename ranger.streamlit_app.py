@@ -45,12 +45,12 @@ if uploaded_file is not None:
             col1, col2 = st.columns(cols)
 
             with col1:
-                fig = px.box(df, y=df[i], title=f"Box Plot for {df[i]}")
+                fig = px.box(df, y=numeric_columns.iloc[i], title=f"Box Plot for {numeric_columns.iloc[i]}")
                 st.plotly_chart(fig)
 
             if i + 1 < len(numeric_columns):
                with col2:
-                   fig2 = px.box(df, y=df[i+1], title=f"Box Plot for {df[i+1]}")
+                   fig2 = px.box(df, y=numeric_columns.iloc[i+1], title=f"Box Plot for {numeric_columns.iloc[i+1]}")
                    st.plotly_chart(fig2) 
     #with st.container():
         #for i in numeric_columns:
