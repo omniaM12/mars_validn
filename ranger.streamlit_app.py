@@ -42,7 +42,7 @@ if uploaded_file is not None:
             st.plotly_chart(fig)
     if column in numeric_columns:
         if title=='Box Plot':
-            fig= px.box(df, y=df[column])
+            fig= px.box(df, y=column)
             st.plotly_chart(fig, theme=None, use_container_width=True)        
         filtered_df_less_than_minr = df[df[column] <= minr]
         filtered_df_greater_than_maxr = df[df[column] >= maxr]
