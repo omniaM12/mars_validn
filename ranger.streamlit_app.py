@@ -37,12 +37,12 @@ if uploaded_file is not None:
 
     numeric_columns = df.select_dtypes(include=np.number)
     with st.container():
-        for column in numeric_columns:
-            fig = px.box(df, y=column, title=f"Box Plot for {column}")
+        for i in numeric_columns:
+            fig = px.box(df, y=df[I], title=f"Box Plot for {i}")
             st.plotly_chart(fig)
     if column in numeric_columns:
         if title=='Box Plot':
-            fig1= px.box(df, y=column)
+            fig1= px.box(df, y=column,title=f"Box Plot for {column}")
             st.plotly_chart(fig1, theme=None, use_container_width=True)        
         filtered_df_less_than_minr = df[df[column] <= minr]
         filtered_df_greater_than_maxr = df[df[column] >= maxr]
