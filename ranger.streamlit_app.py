@@ -41,7 +41,7 @@ if uploaded_file is not None:
         cols = 2
 
     # Iterate over numeric columns and create subplots
-        for i in range(len(numeric_columns), cols):
+        for i in range(len(numeric_columns)):
             col1, col2 = st.columns(cols)
 
             with col1:
