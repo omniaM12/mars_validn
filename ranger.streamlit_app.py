@@ -36,10 +36,26 @@ if uploaded_file is not None:
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
     numeric_columns = df.select_dtypes(include=np.number)
-    with st.container():
-        for i in numeric_columns:
-            fig = px.box(df, y=df[i], title=f"Box Plot for {i}")
+     cols = 2
+
+    # Iterate over numeric columns and create subplots
+    for i in range(0, len(numeric_columns), cols):
+        col1, col2 = st.columns(cols)
+
+        with col1:
+            fig = px.box(df, y=numeric_columns[i], title=f"Box Plot for {numeric_columns[i]}")
             st.plotly_chart(fig)
+
+        if i + 1 < len(numeric_columns):
+            with col2:
+                fig = px.box(df, y=numeric_columns[i+1], title=f"Box Plot for {numeric_columns[i+1]}")
+                st.plotly_chart(fig)
+
+    
+    #with st.container():
+        #for i in numeric_columns:
+            #fig = px.box(df, y=df[i], title=f"Box Plot for {i}")
+            #st.plotly_chart(fig)
     if column in numeric_columns:
         if title=='Box Plot':
             fig1= px.box(df, y=column,title=f"Box Plot for {column}")
